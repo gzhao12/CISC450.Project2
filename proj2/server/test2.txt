@@ -1,0 +1,57 @@
+In this project, you will implement a client and a server
+which use TCP to transmit a file from the server to the client.
+Both the client and the server will run on the course VM
+{\em cisc450.cis.udel.edu},
+but they should be written in such a way that they could
+conceivably be run on any two hosts, not necessarily the same.
+For convenience, both the hostname and the server
+port number may be hardcoded into both client and server,
+but this should be done in such a way that they should
+be easy to change.
+
+The server starts by waiting for a connection request from the client. %printin
+
+The client starts by prompting the user to enter 
+%the hostname and port number for the server. 
+%It then prompts the user to enter
+the name of the file to be transferred. The client then sends a connection
+request to the server.  After the connection is established, the client sends a
+filename to the server. The server reads the file and sends it to the client in
+a series of packets as described below. The client receives the file and stores
+it with the name {\em out.txt}.
+When the file transfer is complete, both the client 
+A
+B
+C
+DEF
+
+G
+H
+and the server terminate execution.
+
+The format of a data packet is shown in the figure below:
+
+\begin{verbatim}
+    <----------------- 16 bits (2 bytes) ------------------>
+    --------------------------------------------------------
+    |                Packet Sequence Number                |
+    --------------------------------------------------------
+    |              Count (no. of data bytes)               |
+    --------------------------------------------------------
+    |            Data Bytes      |          ...            |
+    --------------------------------------------------------
+\end{verbatim}
+
+Each data packet contains a 4-byte long header followed by a number of data
+characters.  The header contains  2 fields, each of length 16 bits (2 bytes) as
+shown in the figure above. You must convert the values in these fields
+into the network byte order when they are transmitted, and convert them back to
+convert them back to host byte order when they are received.
+
+
+The first field of the header is called the packet sequence number. Each packet
+transmitted  by the  server is  assigned a sequence number  starting with 1 and
+incremented by 1 for each packet.  The second field of the header is a count of
+data characters in the packet. This value must be in the range 0 through 80. If
+the count is 0, then there are no data
+characters in the packet.
