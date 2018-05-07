@@ -1,0 +1,167 @@
+Script started on Sun May  6 23:22:27 2018
+[?1034hbash-3.2$ make clean
+rm udpclient
+bash-3.2$ ls -l
+total 6144
+-rw-r-xr-x@ 1 grantzhao  staff    112 May  4 19:31 Makefile
+-rw-r--r--  1 grantzhao  staff     43 May  6 23:22 client-session.txt
+-rw-r--r--@ 1 grantzhao  staff  10416 May  6 23:19 udpclient.c
+bash-3.2$ make all
+/usr/bin/gcc     udpclient.c   -o udpclient
+bash-3.2$ ls -l
+total 8192
+-rw-r-xr-x@ 1 grantzhao  staff    112 May  4 19:31 Makefile
+-rw-r--r--  1 grantzhao  staff     43 May  6 23:22 client-session.txt
+-rwxr-xr-x  1 grantzhao  staff  13788 May  6 23:22 udpclient
+-rw-r--r--@ 1 grantzhao  staff  10416 May  6 23:19 udpclient.c
+bash-3.2$ ./udpclient .2 .15
+Enter hostname of server: localhost
+Enter port number for server: 46792
+Please input a file name:
+test2.txt
+Packet 1 received with 58 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 57 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 57 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 50 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 55 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 1 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 1 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 47 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 75 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 80 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 32 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 2 data bytes 
+ACK 1 transmitted 
+Packet 1 lost 
+Packet 1 received with 2 data bytes 
+ACK 1 transmitted 
+Packet 1 lost 
+Packet 1 received with 1 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 2 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 1 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 1 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 61 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 61 data bytes 
+ACK 1 transmitted 
+Packet 1 lost 
+Packet 1 received with 61 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 61 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 15 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 76 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 71 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 61 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 1 data bytes 
+ACK 1 lost 
+Duplicate packet 1 received with 1 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 80 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 80 data bytes 
+ACK 1 transmitted 
+Packet 1 received with 26 data bytes 
+ACK 1 lost 
+Duplicate packet 1 received with 26 data bytes 
+ACK 1 transmitted 
+End of Transmission Packet with sequence number 0 received with 0 data bytes
+
+Number of data packets received successfully: 57
+Total number of data bytes received which are delivered to user: 2510
+Total number of duplicate data packets received: 6
+Number of data packets received but dropped due to loss: 9
+Total number of data packets received: 72
+Number of ACKs transmitted without loss: 57
+Number of ACKs generated but dropped due to loss: 6
+Total number of ACKs generated: 63
+bash-3.2$ ls -l
+total 10240
+-rw-r-xr-x@ 1 grantzhao  staff    112 May  4 19:31 Makefile
+-rw-r--r--  1 grantzhao  staff    729 May  6 23:23 client-session.txt
+-rw-r--r--  1 grantzhao  staff   2510 May  6 23:23 test2.txt
+-rwxr-xr-x  1 grantzhao  staff  13788 May  6 23:22 udpclient
+-rw-r--r--@ 1 grantzhao  staff  10416 May  6 23:19 udpclient.c
+bash-3.2$ cat test2.txt
+In this project, you will implement a client and a server
+which use TCP to transmit a file from the server to the client.
+Both the client and the server will run on the course VM
+{\em cisc450.cis.udel.edu},
+but they should be written in such a way that they could
+conceivably be run on any two hosts, not necessarily the same.
+For convenience, both the hostname and the server
+port number may be hardcoded into both client and server,
+but this should be done in such a way that they should
+be easy to change.
+
+The server starts by waiting for a connection request from the client. %printin
+
+The client starts by prompting the user to enter 
+%the hostname and port number for the server. 
+%It then prompts the user to enter
+the name of the file to be transferred. The client then sends a connection
+request to the server.  After the connection is established, the client sends a
+filename to the server. The server reads the file and sends it to the client in
+a series of packets as described below. The client receives the file and stores
+it with the name {\em out.txt}.
+When the file transfer is complete, both the client 
+A
+B
+C
+DEF
+
+G
+H
+and the server terminate execution.
+
+The format of a data packet is shown in the figure below:
+
+\begin{verbatim}
+    <----------------- 16 bits (2 bytes) ------------------>
+    --------------------------------------------------------
+    |                Packet Sequence Number                |
+    --------------------------------------------------------
+    |              Count (no. of data bytes)               |
+    --------------------------------------------------------
+    |            Data Bytes      |          ...            |
+    --------------------------------------------------------
+\end{verbatim}
+
+Each data packet contains a 4-byte long header followed by a number of data
+characters.  The header contains  2 fields, each of length 16 bits (2 bytes) as
+shown in the figure above. You must convert the values in these fields
+into the network byte order when they are transmitted, and convert them back to
+convert them back to host byte order when they are received.
+
+
+The first field of the header is called the packet sequence number. Each packet
+transmitted  by the  server is  assigned a sequence number  starting with 1 and
+incremented by 1 for each packet.  The second field of the header is a count of
+data characters in the packet. This value must be in the range 0 through 80. If
+the count is 0, then there are no data
+characters in the packet.
+bash-3.2$ cd ..
+bash-3.2$ diff client/test2.txt server/test2.txt
+bash-3.2$ exit
+exit
+
+Script done on Sun May  6 23:23:57 2018
