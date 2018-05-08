@@ -70,9 +70,6 @@ int main(int argc, char * argv[]) {
    
    struct timeval timeout;
    
-   timeout.tv_sec = 0;
-   timeout.tv_usec = pow(10,TIMEOUT);
-   
    char fileName[STRING_SIZE];  /* receive message */
    char sendLine[MAX_CHAR_PER_SEND]; /* send message */
    
@@ -88,6 +85,16 @@ int main(int argc, char * argv[]) {
    int bytes_sent, bytes_recd; /* number of bytes sent or received */
    
    unsigned int i;  /* temporary loop variable */
+   
+   /* sets the timeout time */
+   
+   if(TIMEOUT >= 6) {
+      timeout.tv_sec = pow(10, TIMEOUT - 6);
+      timeout.tv_usec = 0;
+   } else {
+      timeout.tv_sec = 0;
+      timeout.tv_usec = pow(10, TIMEOUT);
+   }
    
    /* open a socket */
    

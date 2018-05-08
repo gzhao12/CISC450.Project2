@@ -1,0 +1,23 @@
+In this project, you will implement a client and a server
+which use TCP to transmit a file from the server to the client.
+Both the client and the server will run on the course VM
+{\em cisc450.cis.udel.edu},
+but they should be written in such a way that they could
+conceivably be run on any two hosts, not necessarily the same.
+For convenience, both the hostname and the server
+port number may be hardcoded into both client and server,
+but this should be done in such a way that they should
+be easy to change.
+
+The server starts by waiting for a connection request from the client. %printin
+
+The client starts by prompting the user to enter 
+%the hostname and port number for the server. 
+%It then prompts the user to enter
+the name of the file to be transferred. The client then sends a connection
+request to the server.  After the connection is established, the client sends a
+filename to the server. The server reads the file and sends it to the client in
+a series of packets as described below. The client receives the file and stores
+it with the name {\em out.txt}.
+When the file transfer is complete, both the client 
+and the server terminate execution.
