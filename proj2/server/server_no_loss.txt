@@ -1,103 +1,149 @@
-Script started on Sun May  6 23:21:50 2018
-[?1034hbash-3.2$ make clean
-rm udpserver
-bash-3.2$ ls -l
-total 10240
--rw-r-xr-x@ 1 grantzhao  staff   112 May  4 19:38 Makefile
--rw-r--r--  1 grantzhao  staff    43 May  6 23:21 server-session.txt
--rw-r--r--@ 1 grantzhao  staff  1159 Mar 18 17:45 test1.txt
--rw-rw-r--@ 1 grantzhao  staff  2510 Mar 18 17:45 test2.txt
--rw-r--r--@ 1 grantzhao  staff  7829 May  6 23:18 udpserver.c
-bash-3.2$ make all
-/usr/bin/gcc udpserver.c -o udpserver
-bash-3.2$ ls -l
-total 12288
--rw-r-xr-x@ 1 grantzhao  staff    112 May  4 19:38 Makefile
--rw-r--r--  1 grantzhao  staff     43 May  6 23:21 server-session.txt
--rw-r--r--@ 1 grantzhao  staff   1159 Mar 18 17:45 test1.txt
--rw-rw-r--@ 1 grantzhao  staff   2510 Mar 18 17:45 test2.txt
--rwxr-xr-x  1 grantzhao  staff  13588 May  6 23:22 udpserver
--rw-r--r--@ 1 grantzhao  staff   7829 May  6 23:18 udpserver.c
-bash-3.2$ ./udpserver 5
+Script started on Tue 08 May 2018 10:42:34 PM EDT
+konark@cisc450:~/CISC-450/proj2/server$ ls -l
+total 12
+-rw-rw-r-- 1 konark konark  221 May  8 22:24 Makefile
+-rw-rw-r-- 1 konark konark    0 May  8 22:42 server_no_loss.txt
+-rw-rw-r-- 1 konark konark 1159 May  8 19:42 test1.txt
+-rw-rw-r-- 1 konark konark 2510 May  8 19:42 test2.txt
+-rw-rw-r-- 1 konark konark 7876 May  8 22:34 udpserver.c
+konark@cisc450:~/CISC-450/proj2/server$ make all ls -1[K[K[K[K[K[K
+/usr/bin/gcc udpserver.c -o udpserver -lm
+/usr/bin/gcc -DDEBUG udpserver.c -o udpservertest -lm
+konark@cisc450:~/CISC-450/proj2/server$ ls - [Kl
+total 13
+-rw-rw-r-- 1 konark konark   221 May  8 22:24 Makefile
+-rw-rw-r-- 1 konark konark     0 May  8 22:42 server_no_loss.txt
+-rw-rw-r-- 1 konark konark  1159 May  8 19:42 test1.txt
+-rw-rw-r-- 1 konark konark  2510 May  8 19:42 test2.txt
+-rwxrwxr-x 1 konark konark 13841 May  8 22:43 udpserver
+-rw-rw-r-- 1 konark konark  7876 May  8 22:34 udpserver.c
+-rwxrwxr-x 1 konark konark 13891 May  8 22:43 udpservertest
+konark@cisc450:~/CISC-450/proj2/server$ ./udpserver 3
 Waiting for incoming messages on port 46792
 
 Packet 1 transmitted with 58 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 64 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 57 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 28 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 57 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 63 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 50 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 58 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 55 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 19 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 1 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 80 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 1 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 50 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 47 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 35 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 75 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 80 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 80 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 80 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 32 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 53 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 2 data bytes 
 ACK 1 received 
-Packet 1 transmitted with 2 data bytes 
-Timeout expired for packet numbered 1 
-Packet 1 retransmitted with 2 data bytes 
-ACK 1 received 
-Packet 1 transmitted with 1 data bytes 
-Timeout expired for packet numbered 1 
-Packet 1 retransmitted with 1 data bytes 
-ACK 1 received 
+Packet 0 transmitted with 2 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 2 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 4 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 1 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 2 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 2 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 36 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 1 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 58 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 1 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 17 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 61 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 61 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 61 data bytes 
 ACK 1 received 
-Packet 1 transmitted with 61 data bytes 
-Timeout expired for packet numbered 1 
-Packet 1 retransmitted with 61 data bytes 
-ACK 1 received 
+Packet 0 transmitted with 61 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 61 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 61 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 61 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 61 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 15 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 1 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 76 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 80 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 71 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 80 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 61 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 1 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 1 data bytes 
-Timeout expired for packet numbered 1 
-Packet 1 retransmitted with 1 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 80 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 80 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 80 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 80 data bytes 
 ACK 1 received 
+Packet 0 transmitted with 39 data bytes 
+ACK 0 received 
 Packet 1 transmitted with 26 data bytes 
-Timeout expired for packet numbered 1 
-Packet 1 retransmitted with 26 data bytes 
 ACK 1 received 
 End of Transmission Packet with sequence number 0 transmitted with 0 data bytes
 
 Number of data packets transmitted: 57
 Total number of data bytes transmitted: 2510
-Total number of retransmissions: 15
-Total number of transmissions: 72
+Total number of retransmissions: 0
+Total number of transmissions: 57
 Total number of ACKs received: 57
-Total number of timeouts: 15
-bash-3.2$ cat test2.txt
+Total number of timeouts: 0
+konark@cisc450:~/CISC-450/proj2/server$ cat test2.txt 
 In this project, you will implement a client and a server
 which use TCP to transmit a file from the server to the client.
 Both the client and the server will run on the course VM
@@ -155,7 +201,7 @@ incremented by 1 for each packet.  The second field of the header is a count of
 data characters in the packet. This value must be in the range 0 through 80. If
 the count is 0, then there are no data
 characters in the packet.
-bash-3.2$ exit
+konark@cisc450:~/CISC-450/proj2/server$ exit
 exit
 
-Script done on Sun May  6 23:24:10 2018
+Script done on Tue 08 May 2018 10:46:41 PM EDT

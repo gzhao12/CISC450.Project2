@@ -1,0 +1,289 @@
+Script started on Tue 08 May 2018 10:48:25 PM EDT
+konark@cisc450:~/CISC-450/proj2/server$ ./udpservertest 5
+TIMEOUT VALUE: 5
+Waiting for incoming messages on port 46792
+
+Received file name is: test1.txt
+     with length 10
+
+Packet 1 transmitted with 58 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 64 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 57 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 57 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 28 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 57 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 63 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 50 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 58 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 55 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 19 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 19 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 1 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 80 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 1 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 1 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 50 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 50 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 47 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 35 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 75 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 80 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 80 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 80 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 80 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 80 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 80 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 32 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 53 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 53 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 36 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 36 data bytes 
+ACK 1 received 
+End of Transmission Packet with sequence number 0 transmitted with 0 data bytes
+
+Number of data packets transmitted: 23
+Total number of data bytes transmitted: 1159
+Total number of retransmissions: 9
+Total number of transmissions: 32
+Total number of ACKs received: 23
+Total number of timeouts: 9
+
+This version is ran with tests
+
+konark@cisc450:~/CISC-450/proj2/server$ echo lots of loss
+lots of loss
+konark@cisc450:~/CISC-450/proj2/server$ echo lots of loss./udpservertest 5[K6
+TIMEOUT VALUE: 6
+Waiting for incoming messages on port 46792
+
+Received file name is: test1.txt
+     with length 10
+
+Packet 1 transmitted with 58 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 58 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 58 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 64 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 64 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 64 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 57 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 57 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 57 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 57 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 57 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 28 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 28 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 28 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 57 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 57 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 63 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 63 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 50 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 50 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 50 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 50 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 58 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 58 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 55 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 55 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 55 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 55 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 55 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 55 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 55 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 55 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 55 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 55 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 55 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 19 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 19 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 1 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 1 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 1 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 1 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 1 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 1 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 1 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 80 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 1 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 1 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 1 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 1 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 1 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 50 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 47 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 47 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 47 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 47 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 47 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 47 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 47 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 47 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 47 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 47 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 47 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 47 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 47 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 35 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 35 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 35 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 35 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 75 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 80 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 80 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 80 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 80 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 80 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 80 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 80 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 80 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 80 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 80 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 80 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 32 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 32 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 32 data bytes 
+ACK 1 received 
+Packet 0 transmitted with 53 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 53 data bytes 
+Timeout expired for packet numbered 0 
+Packet 0 retransmitted with 53 data bytes 
+ACK 0 received 
+Packet 1 transmitted with 36 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 36 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 36 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 36 data bytes 
+Timeout expired for packet numbered 1 
+Packet 1 retransmitted with 36 data bytes 
+ACK 1 received 
+End of Transmission Packet with sequence number 0 transmitted with 0 data bytes
+
+Number of data packets transmitted: 23
+Total number of data bytes transmitted: 1159
+Total number of retransmissions: 68
+Total number of transmissions: 91
+Total number of ACKs received: 23
+Total number of timeouts: 68
+
+This version is ran with tests
+
+konark@cisc450:~/CISC-450/proj2/server$ exit
+exit
+
+Script done on Tue 08 May 2018 10:52:57 PM EDT

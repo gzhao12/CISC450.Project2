@@ -17,7 +17,6 @@
 #define STRING_SIZE 1024
 #define MAX_CHAR_PER_SEND 80  /* constant for the max characters allowed to be copied from a line of text */
 #define MAX_PACKET_RECEIVED_SIZE 84
-#define PACKET_PRINT_NUM 1
 
 
 struct packet {
@@ -58,6 +57,10 @@ int main(int argc, char * argv[]) {
       assert(ACK_LOSS_RATE >= 0);
       assert(PACKET_LOSS_RATE <= 1);
       assert(ACK_LOSS_RATE <= 1);
+#ifdef DEBUG
+	printf("PACKET_LOSS_RATE VALUE: %f\n", PACKET_LOSS_RATE);
+	printf("ACK_LOSS_RATE VALUE: %f\n", ACK_LOSS_RATE);
+#endif
    } else {
       exit(1);
    }
@@ -163,7 +166,12 @@ int main(int argc, char * argv[]) {
    printf("Please input a file name:\n");
    scanf("%s", fileName);
    msg_len = strlen(fileName) + 1;
-   
+
+#ifdef DEBUG
+     printf("\nFile Name: %s\n", fileName);
+#endif
+
+
    /* create packet to send to server */
    struct packet packetSent = {htons(0), htons(msg_len)};
    strcpy(packetSent.payloadLine, fileName);
@@ -172,8 +180,10 @@ int main(int argc, char * argv[]) {
                        (struct sockaddr *) &server_addr, sizeof (server_addr));
    
    /* Tests for packet byte_sent */
-//   printf("\nSize of packet: %lu\n", sizeof(packetSent));
-//   printf("Packet bytes sent: %d\n\n", bytes_sent);
+#ifdef DEBUG
+     printf("\nSize of packet: %lu\n", sizeof(packetSent));
+     printf("Packet bytes sent: %d\n\n", bytes_sent);
+#endif
    
    /* local file access */
    FILE * receivedFile = fopen(fileName, "w");
@@ -183,14 +193,12 @@ int main(int argc, char * argv[]) {
       bytes_recd = recvfrom(sock_client, &packetReceived, MAX_PACKET_RECEIVED_SIZE, 0, (struct sockaddr *) 0, (unsigned int *) 0);
       if (ntohs(packetReceived.count) > 0) {
          if (SimulateLoss(PACKET_LOSS_RATE) == 1) {
-            if(ntohs(packetReceived.sequence_number) == PACKET_PRINT_NUM)
                printf("Packet %d lost \n", ntohs(packetReceived.sequence_number));
             
             totalCounter++;
             lossCounter++;
          } else {
             if(ntohs(packetReceived.sequence_number) != expectedSeqNum % 2) {
-               if(ntohs(packetReceived.sequence_number) == PACKET_PRINT_NUM)
                   printf("Duplicate packet %d received with %d data bytes \n", ntohs(packetReceived.sequence_number), ntohs(packetReceived.count));
                
                totalCounter++;
@@ -201,18 +209,15 @@ int main(int argc, char * argv[]) {
                struct ACK ACKsent = {htons(ACKcounter % 2)};
                
                if (SimulateACKLoss(ACK_LOSS_RATE) == 1) {
-                  if(ACKcounter % 2 == PACKET_PRINT_NUM)
                      printf("ACK %d lost \n", ACKcounter % 2);
                   droppedACKCounter++;
                } else {
                   bytes_sent = sendto(sock_client, &ACKsent, 2, 0, (struct sockaddr *) &server_addr, sizeof (server_addr));
-                  if (ACKcounter % 2 == PACKET_PRINT_NUM)
                      printf("ACK %d transmitted \n", ACKcounter % 2);
                   noLossACKCounter++;
                   ACKcounter++;
                }
             } else {
-               if (ntohs(packetReceived.sequence_number) == PACKET_PRINT_NUM)
                   printf("Packet %d received with %d data bytes \n", ntohs(packetReceived.sequence_number), ntohs(packetReceived.count));
                
                totalBytes += ntohs(packetReceived.count);
@@ -224,14 +229,11 @@ int main(int argc, char * argv[]) {
                struct ACK ACKsent = {htons(ACKcounter % 2)};
                
                if (SimulateACKLoss(ACK_LOSS_RATE) == 1) {
-                  if(ACKcounter % 2 == PACKET_PRINT_NUM)
                      printf("ACK %d lost \n", ACKcounter % 2);
                   expectedSeqNum++;
                   droppedACKCounter++;
                } else {
                   bytes_sent = sendto(sock_client, &ACKsent, 2, 0, (struct sockaddr *) &server_addr, sizeof (server_addr));
-                  
-                  if(ACKcounter % 2 == PACKET_PRINT_NUM)
                      printf("ACK %d transmitted \n", ACKcounter % 2);
                   expectedSeqNum++;
                   noLossACKCounter++;
@@ -242,7 +244,7 @@ int main(int argc, char * argv[]) {
       } else {
          totalACKCounter = noLossACKCounter + droppedACKCounter;
          
-         printf("End of Transmission Packet with sequence number %d received with %d data bytes\n\n", ntohs(packetReceived.sequence_number), ntohs(packetReceived.count));
+         printf("End of Transmission Packet with sequence number %d received with %d data bytes\n\n", ntohs(packetReceived.sequence_number), ntohs(packetReceived.count));
          
          printf("Number of data packets received successfully: %d\n", expectedSeqNum - 1);
          printf("Total number of data bytes received which are delivered to user: %d\n", totalBytes);
@@ -253,6 +255,9 @@ int main(int argc, char * argv[]) {
          printf("Number of ACKs generated but dropped due to loss: %d\n", droppedACKCounter);
          printf("Total number of ACKs generated: %d\n", totalACKCounter);
          
+#ifdef DEBUG
+     printf("\nThis version is ran with tests\n\n");
+#endif
          break;
       }
    }

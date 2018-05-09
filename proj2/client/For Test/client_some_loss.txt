@@ -1,0 +1,259 @@
+Script started on Tue 08 May 2018 10:48:38 PM EDT
+konark@cisc450:~/CISC-450/proj2/client$ ./udpclienttest 2[K.2 .15
+PACKET_LOSS_RATE VALUE: 0.200000
+ACK_LOSS_RATE VALUE: 0.150000
+Enter hostname of server: localhost
+Enter port number for server: 46792
+Please input a file name:
+test1.txt
+
+File Name: test1.txt
+
+Size of packet: 1028
+Packet bytes sent: 14
+
+Packet 1 received with 58 data bytes 
+ACK 1 transmitted 
+Packet 0 received with 64 data bytes 
+ACK 0 transmitted 
+Packet 1 lost 
+Packet 1 received with 57 data bytes 
+ACK 1 transmitted 
+Packet 0 received with 28 data bytes 
+ACK 0 transmitted 
+Packet 1 received with 57 data bytes 
+ACK 1 transmitted 
+Packet 0 received with 63 data bytes 
+ACK 0 transmitted 
+Packet 1 received with 50 data bytes 
+ACK 1 transmitted 
+Packet 0 received with 58 data bytes 
+ACK 0 transmitted 
+Packet 1 received with 55 data bytes 
+ACK 1 transmitted 
+Packet 0 lost 
+Packet 0 received with 19 data bytes 
+ACK 0 transmitted 
+Packet 1 received with 1 data bytes 
+ACK 1 transmitted 
+Packet 0 received with 80 data bytes 
+ACK 0 transmitted 
+Packet 1 lost 
+Packet 1 received with 1 data bytes 
+ACK 1 transmitted 
+Packet 0 lost 
+Packet 0 received with 50 data bytes 
+ACK 0 transmitted 
+Packet 1 received with 47 data bytes 
+ACK 1 transmitted 
+Packet 0 received with 35 data bytes 
+ACK 0 transmitted 
+Packet 1 received with 75 data bytes 
+ACK 1 transmitted 
+Packet 0 lost 
+Packet 0 lost 
+Packet 0 received with 80 data bytes 
+ACK 0 transmitted 
+Packet 1 lost 
+Packet 1 received with 80 data bytes 
+ACK 1 transmitted 
+Packet 0 received with 80 data bytes 
+ACK 0 transmitted 
+Packet 1 received with 32 data bytes 
+ACK 1 transmitted 
+Packet 0 lost 
+Packet 0 received with 53 data bytes 
+ACK 0 transmitted 
+Packet 1 received with 36 data bytes 
+ACK 1 lost 
+Duplicate packet 1 received with 36 data bytes 
+ACK 1 transmitted 
+End of Transmission Packet with sequence number 0 received with 0 data bytes
+
+Number of data packets received successfully: 23
+Total number of data bytes received which are delivered to user: 1159
+Total number of duplicate data packets received: 1
+Number of data packets received but dropped due to loss: 8
+Total number of data packets received: 32
+Number of ACKs transmitted without loss: 23
+Number of ACKs generated but dropped due to loss: 1
+Total number of ACKs generated: 24
+
+This version is ran with tests
+
+konark@cisc450:~/CISC-450/proj2/client$ echo lots of loss
+lots of loss
+konark@cisc450:~/CISC-450/proj2/client$ echo lots of loss./udpclienttest .2 .15[1P .154 .15[C[C[C[1P5
+PACKET_LOSS_RATE VALUE: 0.400000
+ACK_LOSS_RATE VALUE: 0.500000
+Enter hostname of server: localhost
+Enter port number for server: 46792
+Please input a file name:
+test1.txt
+
+File Name: test1.txt
+
+Size of packet: 1028
+Packet bytes sent: 14
+
+Packet 1 lost 
+Packet 1 received with 58 data bytes 
+ACK 1 lost 
+Duplicate packet 1 received with 58 data bytes 
+ACK 1 transmitted 
+Packet 0 received with 64 data bytes 
+ACK 0 lost 
+Packet 0 lost 
+Duplicate packet 0 received with 64 data bytes 
+ACK 0 transmitted 
+Packet 1 lost 
+Packet 1 received with 57 data bytes 
+ACK 1 lost 
+Packet 1 lost 
+Packet 1 lost 
+Duplicate packet 1 received with 57 data bytes 
+ACK 1 transmitted 
+Packet 0 lost 
+Packet 0 received with 28 data bytes 
+ACK 0 lost 
+Duplicate packet 0 received with 28 data bytes 
+ACK 0 transmitted 
+Packet 1 lost 
+Packet 1 received with 57 data bytes 
+ACK 1 transmitted 
+Packet 0 received with 63 data bytes 
+ACK 0 lost 
+Duplicate packet 0 received with 63 data bytes 
+ACK 0 transmitted 
+Packet 1 lost 
+Packet 1 received with 50 data bytes 
+ACK 1 lost 
+Duplicate packet 1 received with 50 data bytes 
+ACK 1 lost 
+Duplicate packet 1 received with 50 data bytes 
+ACK 1 transmitted 
+Packet 0 received with 58 data bytes 
+ACK 0 lost 
+Duplicate packet 0 received with 58 data bytes 
+ACK 0 transmitted 
+Packet 1 lost 
+Packet 1 lost 
+Packet 1 lost 
+Packet 1 received with 55 data bytes 
+ACK 1 lost 
+Packet 1 lost 
+Packet 1 lost 
+Packet 1 lost 
+Packet 1 lost 
+Packet 1 lost 
+Duplicate packet 1 received with 55 data bytes 
+ACK 1 lost 
+Duplicate packet 1 received with 55 data bytes 
+ACK 1 transmitted 
+Packet 0 lost 
+Packet 0 received with 19 data bytes 
+ACK 0 transmitted 
+Packet 1 received with 1 data bytes 
+ACK 1 lost 
+Packet 1 lost 
+Duplicate packet 1 received with 1 data bytes 
+ACK 1 lost 
+Duplicate packet 1 received with 1 data bytes 
+ACK 1 lost 
+Packet 1 lost 
+Packet 1 lost 
+Duplicate packet 1 received with 1 data bytes 
+ACK 1 transmitted 
+Packet 0 received with 80 data bytes 
+ACK 0 transmitted 
+Packet 1 lost 
+Packet 1 received with 1 data bytes 
+ACK 1 lost 
+Packet 1 lost 
+Packet 1 lost 
+Duplicate packet 1 received with 1 data bytes 
+ACK 1 transmitted 
+Packet 0 received with 50 data bytes 
+ACK 0 transmitted 
+Packet 1 received with 47 data bytes 
+ACK 1 lost 
+Packet 1 lost 
+Packet 1 lost 
+Packet 1 lost 
+Duplicate packet 1 received with 47 data bytes 
+ACK 1 lost 
+Duplicate packet 1 received with 47 data bytes 
+ACK 1 lost 
+Duplicate packet 1 received with 47 data bytes 
+ACK 1 lost 
+Duplicate packet 1 received with 47 data bytes 
+ACK 1 lost 
+Packet 1 lost 
+Packet 1 lost 
+Duplicate packet 1 received with 47 data bytes 
+ACK 1 lost 
+Duplicate packet 1 received with 47 data bytes 
+ACK 1 lost 
+Duplicate packet 1 received with 47 data bytes 
+ACK 1 transmitted 
+Packet 0 lost 
+Packet 0 lost 
+Packet 0 received with 35 data bytes 
+ACK 0 lost 
+Duplicate packet 0 received with 35 data bytes 
+ACK 0 transmitted 
+Packet 1 received with 75 data bytes 
+ACK 1 transmitted 
+Packet 0 lost 
+Packet 0 received with 80 data bytes 
+ACK 0 transmitted 
+Packet 1 received with 80 data bytes 
+ACK 1 transmitted 
+Packet 0 received with 80 data bytes 
+ACK 0 lost 
+Duplicate packet 0 received with 80 data bytes 
+ACK 0 lost 
+Duplicate packet 0 received with 80 data bytes 
+ACK 0 lost 
+Duplicate packet 0 received with 80 data bytes 
+ACK 0 lost 
+Duplicate packet 0 received with 80 data bytes 
+ACK 0 lost 
+Packet 0 lost 
+Packet 0 lost 
+Duplicate packet 0 received with 80 data bytes 
+ACK 0 transmitted 
+Packet 1 received with 32 data bytes 
+ACK 1 lost 
+Duplicate packet 1 received with 32 data bytes 
+ACK 1 lost 
+Duplicate packet 1 received with 32 data bytes 
+ACK 1 transmitted 
+Packet 0 lost 
+Packet 0 received with 53 data bytes 
+ACK 0 lost 
+Duplicate packet 0 received with 53 data bytes 
+ACK 0 transmitted 
+Packet 1 lost 
+Packet 1 lost 
+Packet 1 lost 
+Packet 1 lost 
+Packet 1 received with 36 data bytes 
+ACK 1 transmitted 
+End of Transmission Packet with sequence number 0 received with 0 data bytes
+
+Number of data packets received successfully: 23
+Total number of data bytes received which are delivered to user: 1159
+Total number of duplicate data packets received: 30
+Number of data packets received but dropped due to loss: 38
+Total number of data packets received: 91
+Number of ACKs transmitted without loss: 23
+Number of ACKs generated but dropped due to loss: 30
+Total number of ACKs generated: 53
+
+This version is ran with tests
+
+konark@cisc450:~/CISC-450/proj2/client$ exit
+exit
+
+Script done on Tue 08 May 2018 10:53:00 PM EDT

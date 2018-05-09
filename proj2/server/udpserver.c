@@ -25,7 +25,6 @@
 #define SERV_UDP_PORT 46792
 
 #define MAX_CHAR_PER_SEND 80
-#define PACKET_PRINT_NUM 1
 
 struct packet{
    short unsigned int sequence_number, count;
@@ -51,6 +50,9 @@ int main(int argc, char * argv[]) {
       TIMEOUT = atoi(argv[1]);
       assert(TIMEOUT >= 1);
       assert(TIMEOUT <= 10);
+#ifdef DEBUG
+	printf("TIMEOUT VALUE: %d\n", TIMEOUT);
+#endif
    } else {
       exit(1);
    }
@@ -133,8 +135,9 @@ int main(int argc, char * argv[]) {
       bytes_recd = recvfrom(sock_server, &packetReceived, STRING_SIZE + 4, 0,
                             (struct sockaddr *) &client_addr, &client_addr_len);
       
-      //      printf("Received file name is: %s\n     with length %d\n\n", packetReceived.payLoadLine, ntohs(packetReceived.count));
-      
+#ifdef DEBUG
+	printf("Received file name is: %s\n     with length %d\n\n", 	packetReceived.payLoadLine, ntohs(packetReceived.count));
+#endif      
       /* File IO setup */
       
       FILE * requestedFile = fopen(packetReceived.payLoadLine, "r");
@@ -158,7 +161,6 @@ int main(int argc, char * argv[]) {
          /* send message */
          bytes_sent = sendto(sock_server, &packetSent, strlen(packetSent.payLoadLine) + 4, 0, (struct sockaddr*) &client_addr, client_addr_len);
          
-         if(counter % 2 == PACKET_PRINT_NUM)
             printf("Packet %d transmitted with %lu data bytes \n", counter % 2, strlen(sendLine));
          
          
@@ -168,12 +170,10 @@ int main(int argc, char * argv[]) {
             bytes_recd = recvfrom(sock_server, &ACKreceived, 2, 0, (struct sockaddr *) &client_addr, &client_addr_len);
             
             if (bytes_recd <= 0) {
-               if(counter % 2 == PACKET_PRINT_NUM)
                   printf("Timeout expired for packet numbered %d \n", counter % 2);
                
                   bytes_sent = sendto(sock_server, &packetSent, strlen(packetSent.payLoadLine) + 4, 0, (struct sockaddr*) &client_addr, client_addr_len);
                
-               if(counter % 2 == PACKET_PRINT_NUM)
                   printf("Packet %d retransmitted with %lu data bytes \n", counter % 2, strlen(sendLine));
                
                timeoutCounter++;
@@ -181,7 +181,6 @@ int main(int argc, char * argv[]) {
                retransCounter++;
             } else {
                ACKcounter++;
-               if(ntohs(ACKreceived.sequence_number) == PACKET_PRINT_NUM)
                   printf("ACK %d received \n", ntohs(ACKreceived.sequence_number));
                
                if (ntohs(ACKreceived.sequence_number) != counter % 2) {
@@ -207,6 +206,10 @@ int main(int argc, char * argv[]) {
       printf("Total number of transmissions: %d\n", totalTransCounter);
       printf("Total number of ACKs received: %d\n", ACKcounter);
       printf("Total number of timeouts: %d\n", timeoutCounter);
+
+#ifdef DEBUG
+     printf("\nThis version is ran with tests\n\n");
+#endif
 
       counter = 1;
       totalBytes = 0;

@@ -1,107 +1,157 @@
-Script started on Sun May  6 23:22:27 2018
-[?1034hbash-3.2$ make clean
-rm udpclient
-bash-3.2$ ls -l
-total 6144
--rw-r-xr-x@ 1 grantzhao  staff    112 May  4 19:31 Makefile
--rw-r--r--  1 grantzhao  staff     43 May  6 23:22 client-session.txt
--rw-r--r--@ 1 grantzhao  staff  10416 May  6 23:19 udpclient.c
-bash-3.2$ make all
-/usr/bin/gcc     udpclient.c   -o udpclient
-bash-3.2$ ls -l
-total 8192
--rw-r-xr-x@ 1 grantzhao  staff    112 May  4 19:31 Makefile
--rw-r--r--  1 grantzhao  staff     43 May  6 23:22 client-session.txt
--rwxr-xr-x  1 grantzhao  staff  13788 May  6 23:22 udpclient
--rw-r--r--@ 1 grantzhao  staff  10416 May  6 23:19 udpclient.c
-bash-3.2$ ./udpclient .2 .15
+Script started on Tue 08 May 2018 10:42:16 PM EDT
+konark@cisc450:~/CISC-450/proj2/client$ ls -l
+total 9
+-rw-rw-r-- 1 konark konark     0 May  8 22:42 client_no_loss.txt
+-rw-rw-r-- 1 konark konark   213 May  8 22:24 Makefile
+-rw-rw-r-- 1 konark konark 10199 May  8 22:33 udpclient.c
+konark@cisc450:~/CISC-450/proj2/client$ make all
+/usr/bin/gcc udpclient.c -o udpclient
+/usr/bin/gcc -DDEBUG udpclient.c -o udpclienttest
+konark@cisc450:~/CISC-450/proj2/client$ ls -l
+total 10
+-rw-rw-r-- 1 konark konark     0 May  8 22:42 client_no_loss.txt
+-rw-rw-r-- 1 konark konark   213 May  8 22:24 Makefile
+-rwxrwxr-x 1 konark konark 14149 May  8 22:42 udpclient
+-rw-rw-r-- 1 konark konark 10199 May  8 22:33 udpclient.c
+-rwxrwxr-x 1 konark konark 14149 May  8 22:42 udpclienttest
+konark@cisc450:~/CISC-450/proj2/client$ ./udpclient 0 0
 Enter hostname of server: localhost
 Enter port number for server: 46792
 Please input a file name:
-test2.txt
+test2.txt
 Packet 1 received with 58 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 64 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 57 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 28 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 57 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 63 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 50 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 58 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 55 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 19 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 1 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 80 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 1 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 50 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 47 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 35 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 75 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 80 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 80 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 80 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 32 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 53 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 2 data bytes 
 ACK 1 transmitted 
-Packet 1 lost 
+Packet 0 received with 2 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 2 data bytes 
 ACK 1 transmitted 
-Packet 1 lost 
+Packet 0 received with 4 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 1 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 2 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 2 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 36 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 1 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 58 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 1 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 17 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 61 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 61 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 61 data bytes 
 ACK 1 transmitted 
-Packet 1 lost 
+Packet 0 received with 61 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 61 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 61 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 61 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 61 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 15 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 1 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 76 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 80 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 71 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 80 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 61 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 1 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 1 data bytes 
-ACK 1 lost 
-Duplicate packet 1 received with 1 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 80 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 80 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 80 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 80 data bytes 
 ACK 1 transmitted 
+Packet 0 received with 39 data bytes 
+ACK 0 transmitted 
 Packet 1 received with 26 data bytes 
-ACK 1 lost 
-Duplicate packet 1 received with 26 data bytes 
 ACK 1 transmitted 
-End of Transmission Packet with sequence number 0 received with 0 data bytes
+End of Transmission Packet with sequence number 0 received with 0 data bytes
 
 Number of data packets received successfully: 57
 Total number of data bytes received which are delivered to user: 2510
-Total number of duplicate data packets received: 6
-Number of data packets received but dropped due to loss: 9
-Total number of data packets received: 72
+Total number of duplicate data packets received: 0
+Number of data packets received but dropped due to loss: 0
+Total number of data packets received: 57
 Number of ACKs transmitted without loss: 57
-Number of ACKs generated but dropped due to loss: 6
-Total number of ACKs generated: 63
-bash-3.2$ ls -l
-total 10240
--rw-r-xr-x@ 1 grantzhao  staff    112 May  4 19:31 Makefile
--rw-r--r--  1 grantzhao  staff    729 May  6 23:23 client-session.txt
--rw-r--r--  1 grantzhao  staff   2510 May  6 23:23 test2.txt
--rwxr-xr-x  1 grantzhao  staff  13788 May  6 23:22 udpclient
--rw-r--r--@ 1 grantzhao  staff  10416 May  6 23:19 udpclient.c
-bash-3.2$ cat test2.txt
+Number of ACKs generated but dropped due to loss: 0
+Total number of ACKs generated: 57
+konark@cisc450:~/CISC-450/proj2/client$ ls -l
+total 26
+-rw-rw-r-- 1 konark konark     0 May  8 22:42 client_no_loss.txt
+-rw-rw-r-- 1 konark konark   213 May  8 22:24 Makefile
+-rw-rw-r-- 1 konark konark  2510 May  8 22:44 test2.txt
+-rwxrwxr-x 1 konark konark 14149 May  8 22:42 udpclient
+-rw-rw-r-- 1 konark konark 10199 May  8 22:33 udpclient.c
+-rwxrwxr-x 1 konark konark 14149 May  8 22:42 udpclienttest
+konark@cisc450:~/CISC-450/proj2/client$ cat test2.txt 
 In this project, you will implement a client and a server
 which use TCP to transmit a file from the server to the client.
 Both the client and the server will run on the course VM
@@ -159,9 +209,9 @@ incremented by 1 for each packet.  The second field of the header is a count of
 data characters in the packet. This value must be in the range 0 through 80. If
 the count is 0, then there are no data
 characters in the packet.
-bash-3.2$ cd ..
-bash-3.2$ diff client/test2.txt server/test2.txt
-bash-3.2$ exit
+konark@cisc450:~/CISC-450/proj2/client$ cd ..
+konark@cisc450:~/CISC-450/proj2$ diff client/test2.txt server/test2.txt
+konark@cisc450:~/CISC-450/proj2$ exit
 exit
 
-Script done on Sun May  6 23:23:57 2018
+Script done on Tue 08 May 2018 10:46:14 PM EDT
